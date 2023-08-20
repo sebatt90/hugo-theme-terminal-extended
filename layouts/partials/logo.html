@@ -1,5 +1,17 @@
 <a href="{{ if $.Site.Params.Logo.LogoHomeLink }}{{ $.Site.Params.Logo.LogoHomeLink }}{{else}}{{ $.Site.BaseURL }}{{ end }}">
   <div class="logo">
-    {{ with $.Site.Params.Logo.logoText }}{{ . }}{{ else }}Terminal{{ end }}
+    <p>
+      {{ with $.Site.Params.Logo.logoText }}{{ . }}{{ else }}Terminal{{ end }}
+    </p>
+    <p id="blink">
+      _
+    </p>
   </div>
 </a>
+
+<script type="text/javascript">
+  var blink = document.getElementById('blink');
+  setInterval(function() {
+      blink.style.opacity = (blink.style.opacity == 0 ? 1 : 0);
+  }, 350);
+</script>
